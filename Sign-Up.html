@@ -14,7 +14,7 @@
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
-    <script src="Css-file.css"></script>
+    <link rel="stylesheet" href="Css-file.css">
 
 
 </head>
@@ -341,17 +341,13 @@
                     </div>
                     <div class="row row-space">
                         <div class="col-12">
-                            <div class="input-group col-12">
-                                <p style="font-size: initial">Select Your Game</p>
-                                <label class="checkbox-inline col-12">
-                                    Pubg<input class="checkboxsel" type="checkbox" value="1">
-                                </label>
-                                <label class="checkbox-inline col-12">
-                                    Call Of Duty<input class="checkboxsel" type="checkbox" value="2">
-                                </label>
-                                <label class="checkbox-inline col-12">
-                                    Free Fire <input class="checkboxsel" type="checkbox" value="3">
-                                </label>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right" style="font-size: initial">Select A Game</label>
+                                <div class="col-md-12">
+                                    Pubg<input type="checkbox" id="games1" class="checkboxsel" name="games" value="1">
+                                    Call O Duty<input type="checkbox" id="games2" class="checkboxsel"  name="games" value="2">
+                                    Free Fire<input type="checkbox" id="games3" class="checkboxsel" name="games" value="3">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -413,6 +409,9 @@
                     minlength: 10,
                     maxlength: 12
                 },
+                games: {
+                    required: true
+                },
                 username: {
                     required: true,
                     minlength: 4,
@@ -421,7 +420,6 @@
                 Select1: {
                     required: true
                 },
-
             },
             messages: {
                 firstname: {
@@ -450,6 +448,9 @@
                 },
                 Select1: {
                     required: "Please select the county"
+                },
+                games:{
+                  required:"Pleas Slect any one of this"
                 },
                 username: {
                     required:"Username Required",
