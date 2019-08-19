@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>jQuery validation login basic example</title>
+    <title>jQuery validation login basic Example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
-    <link rel="stylesheet" href="Sign-UP-Css.css">
+    <script src="Css-file.css"></script>
 
 
 </head>
@@ -29,23 +34,29 @@
                     </div>
                     <div class="row row-space">
 
-                        <div class="col-2">
-                            <div class="input-group">
-                                <div class="rs-select2 js-select-simple select--no-search">
-                                    <select name="gender">
-                                        <option disabled="disabled" selected="selected">GENDER</option>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
-                                    </select>
-                                    <div class="select-dropdown"></div>
+                        <div class="col-12">
+                            <div class="input-group ">
+                                <div class="rs-select2 js-select-simple select--no-search col-12">
+                                    <div class="form-group row">
+                                        <label class=" col-form-label text-md-right" style="font-size: initial">Gender</label>
+
+                                        <label class="form-check col-3 col-form-label text-md">
+                                            <input class="form-check-input " type="radio" name="_gender" value="option1">
+                                            <span class="form-check-label"> Male </span>
+                                        </label>
+                                        <label class="form-check col-4 col-form-label text-md">
+                                            <input class="form-check-input " type="radio" name="_gender" value="option2">
+                                            <span class="form-check-label"> Female</span>
+                                        </label>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="input-group">
                         <div class="rs-select2 js-select-simple select--no-search">
-                            <select class="dropdown" name="Select1" size="1">
+                            <select class="dropdown form-control"  name="Select1" size="1">
                                 <option value="">SELECT THE COUNTRY</option>
 
                                 <option value="Afghanistan">Afghanistan</option>
@@ -302,7 +313,7 @@
                     </div>
 
                     <div class="row row-space">
-                        <div class="col-2">
+                        <div class="col-5">
                             <div class="input-group">
                                 <input class="input--style-1" type="text" placeholder="MOBILE NUMBER" name="mobnum">
                             </div>
@@ -312,16 +323,35 @@
                         <input class="input--style-1" type="text" id="username" placeholder="USER NAME" name="username">
                     </div>
                     <div class="row row-space">
-                        <div class="col-2">
+                        <div class="col-5">
                             <div class="input-group">
                                 <input class="input--style-1" type="text" id="password" placeholder="PASSWORD" name="Password">
                             </div>
                         </div>
                     </div>
                     <div class="row row-space">
-                        <div class="col-2">
+                        <div class="col-5">
                             <div class="input-group">
                                 <input class="input--style-1" type="text" id="confirm_password" placeholder="CONFIRM PASSWORD" name="confirmpassword">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-12">
+                            <div class="input-group col-12">
+                                <p style="font-size: initial">Select Your Game</p>
+                                <label class="checkbox-inline col-12">
+                                    Pubg<input class="checkboxsel" type="checkbox" value="1">
+                                </label>
+                                <label class="checkbox-inline col-12">
+                                    Call Of Duty<input class="checkboxsel" type="checkbox" value="2">
+                                </label>
+                                <label class="checkbox-inline col-12">
+                                    Free Fire <input class="checkboxsel" type="checkbox" value="3">
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -357,44 +387,41 @@
                     required: true,
                     minlength: 4,
                     maxlength: 100
-
                 },
                 lastname: {
                     required: true,
                     minlength: 4,
                     maxlength: 100
-
                 },
                 Password: {
                     required: true,
                     minlength: 8,
                     maxlength: maxPassLen
-
                 },
                 confirmpassword: {
                     required: true,
                     minlength: 8,
-                    equalTo: "password",
+                    equalTo: "#password",
                     maxlength: maxPassLen
-
                 },
                 email: {
                     required: true,
                     email: true
-
                 },
                 mobnum: {
                     required: true,
                     minlength: 10,
                     maxlength: 12
-
                 },
                 username: {
                     required: true,
                     minlength: 4,
                     maxlength: 100
-
                 },
+                Select1: {
+                    required: true
+                },
+
             },
             messages: {
                 firstname: {
@@ -410,26 +437,30 @@
                 Password: {
                     required: "Please provide a password",
                     minlength: "Minimum 8 Character required",
-
                 },
                 confirmpassword: {
                     required: "Password required",
                     minlength: "Minimum 8 Character required",
-                    equalTo:"The Password doesn't match"
+
                 },
                 mobnum: {
                     required: "Enter the mobile number",
                     minlength: "Minimum 10 Character required",
                     maxlength:"Please check the Number "
-
+                },
+                Select1: {
+                    required: "Please select the county"
                 },
                 username: {
                     required:"Username Required",
                     minlength: "Minimum 4 Character Required",
-
-
-                },
+                }
             }
+        });
+
+
+        $('.checkboxsel').click(function() {
+            $(this).siblings('input:checkbox').prop('checked', false);
         });
     });
 </script>
